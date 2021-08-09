@@ -1,13 +1,4 @@
----
-description: Learn about updating your extension from Manifest V2 to V3
-title: Prepare to update your extensions from Manifest V2 to V3
-author: MSEdgeTeam
-ms.author: msedgedevrel
-ms.date: 05/11/2020
-ms.topic: article
-ms.prod: microsoft-edge
-keywords: edge-chromium, extensions development, edge extensions, browser extensions, addons, developer, manifest v3, migrate to manifest v3
----
+
 # Prepare to update your extensions from Manifest v2 to v3  
 
 This document lists important changes being implemented as part of Manifest v3, which is the next version of the Chromium Extensions platform.  The Microsoft Edge extensions team updates this document as the implementation progresses.  For detailed guidance on migrating your extension to Manifest v3, navigate to [Migrating to Manifest V3][ChromeDeveloperDocsExtensionsMv3Mv3MigrationChecklist].  
@@ -62,3 +53,6 @@ The Microsoft Edge extensions team continues publishing updates on the blog.  Yo
 [ChromeDeveloperDocsExtensionsReferenceWebrequest]: https://developer.chrome.com/docs/extensions/reference/webRequest "chrome.webRequest | Chrome Developers"  
 
 [ChromiumHomeChromiumSecurityExtensionContentScriptFetches]: https://www.chromium.org/Home/chromium-security/extension-content-script-fetches "Changes to Cross-Origin Requests in Chrome Extension Content Scripts | The Chromium Projects"  
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTgwOTAwNTY0XX0=
+-->

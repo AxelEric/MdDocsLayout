@@ -1,13 +1,3 @@
----
-description: Microsoft Edge Add-ons store developer policies
-title: Microsoft Edge Add-ons store developer policies
-author: MSEdgeTeam
-ms.author: msedgedevrel
-ms.date: 02/17/2021
-ms.topic: article
-ms.prod: microsoft-edge
-keywords: edge-chromium, extensions development, browser extensions, addons, partner center, developer
----
 # Microsoft Edge Add-ons store developer policies  
 
 ## Introduction and Objective of this document  
@@ -333,3 +323,6 @@ If you submit a promotional video in the listing, it should follow all the conte
 [MicrosoftAdvertisingCreativeSpecifications]: https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-specs "Creative Specifications - Microsoft Advertising"  
 
 [MicrosoftPartnerCenter]: https://partner.microsoft.com/dashboard/microsoftedge/public/login?ref=dd "Partner Center"  
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0OTE0MDc4ODhdfQ==
+-->

@@ -1,13 +1,3 @@
----
-description: An overview of building and publishing Microsoft Edge (Chromium) Extensions.
-title: Overview of Microsoft Edge (Chromium) Extensions 
-author: MSEdgeTeam
-ms.author: msedgedevrel
-ms.date: 02/10/2021
-ms.topic: conceptual
-ms.prod: microsoft-edge
-keywords: edge, extensions development, browser extensions, addons, partner center, developer, chromium extensions
----
 # Overview of Microsoft Edge (Chromium) Extensions  
 
 An extension is a small program that you \(a developer\) use to add or modify features for Microsoft Edge \(Chromium\).  An extension is intended to improve a user's day-to-day browsing experience.  It provides niche functionality that is important to a target audience.  
@@ -145,3 +135,6 @@ After you've successfully submitted your extension, your extension undergoes a r
 [OperaDevExtensions]: https://dev.opera.com/extensions "Extensions Documentation | Dev. Opera"  
 [OperaDevExtensionsApis]: https://dev.opera.com/extensions/apis "Extension APIs Supported in Opera | Dev. Opera"  
 [OperaDevExtensionsGettingStarted]: https://dev.opera.com/extensions/getting-started "Getting Started | Dev. Opera"  
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMTg0OTcwNjZdfQ==
+-->

@@ -1,13 +1,3 @@
----
-description: All about 3D View and how to use it.
-title: 3D View
-author: MSEdgeTeam
-ms.author: msedgedevrel
-ms.date: 12/03/2020
-ms.topic: article
-ms.prod: microsoft-edge
-keywords: microsoft edge, web development, f12 tools, devtools
----
 
 Use the **3D View** to debug your web app by navigating through the [Document Object Model (DOM)][MDNDocumentObjectModel] or the [z-index][MDNZIndex] stacking context.  With it, you may complete the following tasks.
 
@@ -132,28 +122,7 @@ The Microsoft Edge Devtools team is working on the UI and adding more functional
 
 [MDNDocumentObjectModel]: https://developer.mozilla.org/docs/Web/API/Document_Object_Model "Document Object Model (DOM) | MDN"
 [MDNZIndex]: https://developer.mozilla.org/docs/Web/CSS/z-index "z-index | MDN"
-<link rel="stylesheet" href="//axeleric.eu/assets/md/css/ae-md.css">
-<link rel="stylesheet" href="//axeleric.eu/assets/md/css/ae-md-append.css">
-<link rel="stylesheet" href="//axeleric.eu/assets/md/css/ae-md-col3.css">
-<link rel="stylesheet" href="//axeleric.eu/assets/md/css/ae-hili.css">
-<script src="//axeleric.eu/assets/md/js/highlight.pack.js"></script>
-<script>hljs.highlightAll();</script>
 
-<div id="left-box" class="left-box">
-
-**Table Of Content**
-
-</div>
-
-<div id="right-box" class="right-box">
-
-[**In This Article**](#top)
-
-</div>
-
-<div id="top-box" class="top-box">&nbsp;
-
-# 3D View
-
-
-</div>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3MjQ1NzA4OTZdfQ==
+-->
