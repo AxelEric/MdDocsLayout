@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+
+      <ul>
+        <li>
+          <ul>
+            <li><a
+                href="#description-all-about-3d-view-and-how-to-use-it.title-3d-viewauthor-msedgeteamms.author-msedgedevrelms.date-12032020ms.topic-articlems.prod-microsoft-edgekeywords-microsoft-edge-web-development-f12-tools-devtools">description:
+                All about 3D View and how to use it.
+                title: 3D View
+                author: MSEdgeTeam
+                ms.author: msedgedevrel
+                ms.date: 12/03/2020
+                ms.topic: article
+                ms.prod: microsoft-edge
+                keywords: microsoft edge, web development, f12 tools, devtools</a></li>
+            <li><a href="#navigating-the-canvas">Navigating the canvas</a></li>
+            <li><a href="#z-index">Z-index</a></li>
+            <li><a href="#d-dom">3D DOM</a></li>
+            <li><a href="#composited-layers">Composited layers</a></li>
+            <li><a href="#getting-in-touch-with-the-microsoft-edge-devtools-team">Getting in touch with the Microsoft
+                Edge DevTools team</a></li>
+          </ul>
+        </li>
+        <li><a href="#d-view">3D View</a></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <hr>
+      <h2
+        id="description-all-about-3d-view-and-how-to-use-it.title-3d-viewauthor-msedgeteamms.author-msedgedevrelms.date-12032020ms.topic-articlems.prod-microsoft-edgekeywords-microsoft-edge-web-development-f12-tools-devtools">
+        description: All about 3D View and how to use it.<br>
+        title: 3D View<br>
+        author: MSEdgeTeam<br>
+        ms.author: msedgedevrel<br>
+        ms.date: 12/03/2020<br>
+        ms.topic: article<br>
+        ms.prod: microsoft-edge<br>
+        keywords: microsoft edge, web development, f12 tools, devtools</h2>
+      <p>Use the <strong>3D View</strong> to debug your web app by navigating through the <a
+          href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model"
+          title="Document Object Model (DOM) | MDN">Document Object Model (DOM)</a> or the <a
+          href="https://developer.mozilla.org/docs/Web/CSS/z-index" title="z-index | MDN">z-index</a> stacking context.
+        With it, you may complete the following tasks.</p>
+      <ul>
+        <li><a href="#3d-dom">Explore the web page translated into a 3D perspective</a></li>
+        <li><a href="#z-index">Debug based on z-index stacking context</a></li>
+        <li><a href="#composited-layers">Access the Layers tool functionality from 3D View with composited layers</a>
+        </li>
+        <li><a href="#changing-your-view">Clear some of the clutter on the DOM pane</a> or the <a
+            href="#change-the-scope-of-your-exploration">z-index pane</a></li>
+        <li><a href="#dom-color-type">Pick the color scheme to best debug your DOM problems</a> or <a
+            href="#z-index-color-type">z-index problems</a></li>
+      </ul>
+      <p>If you want to explore an early prototype of 3D View project and run the code yourself, navigate to <a
+          href="https://github.com/MicrosoftEdge/DevToolsSamples/tree/master/3DView"
+          title="Microsoft Edge DevTools 3D View - MicrosoftEdge/DevToolsSamples | GitHub">3D View Sample</a>.</p>
+      <p>On the left side, there are three panes that you may use for your debugging experience.</p>
+      <ul>
+        <li>The <a href="#z-index">Z-index</a> pane. Navigate through the different elements in the web app with the
+          z-index context in mind. The <strong>Z-index</strong> pane is the default pane.</li>
+        <li>The <a href="#3d-dom">3D DOM</a> pane. Explore the DOM as a whole with all the elements easily accessible.
+          To access the pane, choose the <strong>DOM</strong> pane next to the <strong>Z-index</strong> pane.</li>
+        <li>The <a href="#composited-layers">Composited Layers</a> pane. Add another 3D element to create a more
+          comprehensive experience from a layers perspective. To access the pane, choose the <strong>Composited
+            Layers</strong> pane next to the <strong>DOM</strong> pane.</li>
+      </ul>
+      <p>On the right side, the canvas displays your selections from the <a href="#z-index">Z-index</a>, <a
+          href="#3d-dom">3D DOM</a>, or <a href="#composited-layers">Composited Layers</a>.</p>
+      <h2 id="navigating-the-canvas">Navigating the canvas</h2>
+      <p>:::image type=“complex” source="…/media/3d-view-canvas.msft.png" alt-text=“Canvas of 3D View”
+        lightbox="…/media/3d-view-canvas.msft.png":::<br>
+        Canvas of 3D View<br>
+        :::image-end:::</p>
+      <h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+      <ul>
+        <li>Rotate the DOM: To rotate horizontally, select the <code>left-arrow</code> and <code>right-arrow</code>
+          keys. To rotate vertically, select the <code>up-arrow</code> and <code>down-arrow</code> keys.</li>
+        <li>Navigate the DOM: To move through the adjacent elements, choose an element and select the
+          <code>up-arrow</code> and <code>down-arrow</code> keys.</li>
+      </ul>
+      <h3 id="mouse-controls">Mouse controls</h3>
+      <ul>
+        <li>Rotate the DOM: Choose and drag around the canvas space.</li>
+        <li>Pan around the DOM: Open the contextual menu (right-click) and drag in the direction you want the DOM to
+          move.</li>
+        <li>Zoom: Drag two fingers across the touchpad or use the scroll wheel on your mouse.</li>
+      </ul>
+      <h3 id="on-screen-controls">On-screen controls</h3>
+      <p>:::image type=“complex” source="…/media/3d-view-controls-small.msft.png" alt-text=“On-screen controls”
+        lightbox="…/media/3d-view-controls-small.msft.png":::<br>
+        On-screen controls<br>
+        :::image-end:::</p>
+      <ul>
+        <li>Reset the canvas view to the original view: Choose the <strong>Reset camera</strong> button, or choose the
+          <strong>Reset elements in view and re-center camera</strong> (sideways refresh icon) button.</li>
+        <li>Refresh the canvas (for example, if the browser changed or you switched to a device emulator view): Choose
+          the <strong>Retake snapshot</strong> button or choose the <strong>Take new snapshot</strong> button (refresh
+          icon).</li>
+      </ul>
+      <h2 id="z-index">Z-index</h2>
+      <p>:::image type=“complex” source="…/media/3d-view-z-index-view-box.msft.png" alt-text=“Z-index view”
+        lightbox="…/media/3d-view-z-index-view-box.msft.png":::<br>
+        Z-index view<br>
+        :::image-end:::</p>
+      <p>While the <strong>Z-index</strong> pane has shared features with the <strong>3D DOM</strong> pane, the panes
+        still have elements that are unique to the pane.</p>
+      <h3 id="highlight-elements-with-stacking-context">Highlight elements with stacking context</h3>
+      <p>The <strong>Highlight elements with stacking context</strong> setting allows you to turn on (and off) the
+        z-index tags for the elements on the canvas. The checkbox is chosen by default.</p>
+      <h3 id="change-the-scope-of-your-exploration">Change the scope of your exploration</h3>
+      <p>The <strong>Show all elements</strong> button is the quickest way to display all the elements of the DOM after
+        changing the settings below it.</p>
+      <p>The <strong>Show only elements with stacking context</strong> button removes elements without stacking context
+        and flattens the DOM for easier navigation.</p>
+      <p>The <strong>Isolate selected element</strong> button is essentially three buttons in one. There are two
+        checkboxes below the <strong>Isolate selected element</strong> button: The <strong>Show all parents</strong>
+        checkbox and <strong>Keep only parents with new stacking context</strong> checkbox.</p>
+      <p>The <strong>Show all parents</strong> checkbox is turned on by default. To display the element and any parents
+        on the canvas, choose an element and choose the <strong>Isolate selected element</strong> button.</p>
+      <p>To display the element and the parents that have a new stacking context on the canvas, turn on the <strong>Keep
+          only parents with new stacking context</strong> setting and choose the <strong>Isolate selected
+          element</strong> button.</p>
+      <p>To display the element you chose on the canvas, turn off both the settings and choose <strong>Isolate selected
+          element</strong> button.</p>
+      <p>At the bottom of the <strong>3D DOM</strong> pane, locate the <strong>Hide elements with the same paint order
+          as their parent</strong> checkbox. Choosing and deselecting the checkbox refreshes the elements based on your
+        choice. If chosen, elements that share paint order are flattened to the parent.</p>
+      <p>The options are meant to clear up some of the clutter that more complex web pages create in your canvas.</p>
+      <h3 id="z-index-color-type">Z-index color type</h3>
+      <p>The are the different visualizations you may use for the DOM in your canvas. Whether you use it for fun or
+        because the visualizations help you visualize the DOM better, the DevTools have different colorways and a
+        <strong>Use background color</strong> option. The <strong>Z-index</strong> pane shares the <strong>Purple to
+          White</strong> and <strong>Background Color</strong> with the <strong>3D DOM</strong> pane. Given the added
+        visual element of the z-index labels, your feedback that led to a reduction in the number of color options. The
+        new simplicity improves the z-index debugging experience. The radio buttons allow you to toggle through the
+        options and pick the color type. The color type is either most appropriate for your project or one that you like
+        the most.</p>
+      <h2 id="d-dom">3D DOM</h2>
+      <p>:::image type=“complex” source="…/media/3d-view-dom-purple-box.msft.png" alt-text=“DOM view”
+        lightbox="…/media/3d-view-dom-purple-box.msft.png":::<br>
+        DOM view<br>
+        :::image-end:::</p>
+      <p>If you want to take more of a general debugging view, rather than the z-index experience, the <strong>3D
+          DOM</strong> gives an overall look of the DOM. Since the z-index context is removed, the DOM is stacked more
+        closely and cleanly. The <strong>3D DOM</strong> pane has similar functionality, but there are a few nuances.
+      </p>
+      <h3 id="changing-your-view">Changing your view</h3>
+      <p>On the <strong>3D DOM</strong> pane, the <strong>Isolate selected element</strong> button has <strong>Include
+          children</strong> and <strong>Include parents</strong> checkboxes. Both checkboxes are turned on by default.
+        That means if you choose the <strong>Isolate selected element</strong> button after you choose an element, the
+        canvas displays the chosen element, the parents of the element, and the children of the element. Turn off the
+        <strong>Include children</strong> setting and choose the <strong>Isolate selected element</strong> button again
+        to display the chosen element and the parents of the element. If you turn on the <strong>Include
+          children</strong> setting and turn off the <strong>Include parents</strong> setting and then choose the
+        <strong>Isolate selected element</strong> button, the canvas displays the element and any children. If you turn
+        off both settings and choose the <strong>Isolate selected element</strong> button, the canvas only displays the
+        element you previously chose.</p>
+      <p>A slider on the control pane named <strong>Nesting level for page</strong> with a number next to it. The number
+        indicates the number of layers for the document. Dragging the slider to the left causes the outermost layers to
+        peel away until you are left with a nesting level set to <code>1</code>, which displays only the furthest back
+        element in the DOM. To remove some of the clutter, drag the slider. It helps you get a closer look at what is
+        happening in the lower levels.</p>
+      <h3 id="dom-color-type">DOM color type</h3>
+      <p>The <strong>3D DOM</strong> pane displays the following options.</p>
+      <ul>
+        <li>Three different colorways.
+          <ul>
+            <li><strong>Heatmap - Purple to White</strong></li>
+            <li><strong>Heatmap - Blue to Yellow</strong></li>
+            <li><strong>Heatmap - Rainbow</strong></li>
+          </ul>
+        </li>
+        <li><strong>Use background color</strong></li>
+        <li><strong>Use screen texture</strong></li>
+      </ul>
+      <p>The <strong>Use screen texture</strong> option adds context to your debugging experience. It directly displays
+        the content from the webpage onto the elements.</p>
+      <h2 id="composited-layers">Composited layers</h2>
+      <p>:::image type=“complex” source="…/media/experiments-layers.msft.png" alt-text=“Composited layers pane”
+        lightbox="…/media/experiments-layers.msft.png":::<br>
+        <strong>Composited Layers</strong> pane<br>
+        :::image-end:::
+      </p>
+      <p>The <strong>Composited Layers</strong> pane opens the elements of the <strong>Layers</strong> tool without
+        changing contexts. You may still access the details of each of the layers and have the <strong>Slow scroll
+          rects</strong> and <strong>Paint</strong>.</p>
+      <h2 id="getting-in-touch-with-the-microsoft-edge-devtools-team">Getting in touch with the Microsoft Edge DevTools
+        team</h2>
+      <p>The Microsoft Edge Devtools team is working on the UI and adding more functionality to the 3D View based on
+        your feedback. Send your feedback to help improve the Microsoft Edge DevTools. Choose the <strong>Send
+          Feedback</strong> icon in the DevTools or select <code>Alt</code>+<code>Shift</code>+<code>I</code> on
+        Windows/Linux or <code>Option</code>+<code>Shift</code>+<code>I</code> on macOS and enter any feedback or
+        feature requests you have for the DevTools.</p>
+      <!-- links -->
+
+
+
+
+
+    </div>
+  </div>
+</body>
+
+</html>

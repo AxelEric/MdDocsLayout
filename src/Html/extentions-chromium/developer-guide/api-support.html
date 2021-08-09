@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>api-support</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><hr>
+<h2 id="description-list-of-supported-apis-to-use-when-building-microsoft-edge-extensions.title-supported-apis-for-microsoft-edge-extensionsauthor-msedgeteamms.author-msedgedevrelms.date-01072021ms.topic-articlems.prod-microsoft-edgekeywords-edge-chromium-extensions-development-browser-extensions-add-ons-extension-api--developer-web-development">description: List of supported APIs to use when building Microsoft Edge extensions.<br>
+title: Supported APIs for Microsoft Edge extensions<br>
+author: MSEdgeTeam<br>
+ms.author: msedgedevrel<br>
+ms.date: 01/07/2021<br>
+ms.topic: article<br>
+ms.prod: microsoft-edge<br>
+keywords: edge-chromium, extensions development, browser extensions, add-ons, extension api , developer, web development</h2>
+<h1 id="supported-apis-for-microsoft-edge-extensions">Supported APIs for Microsoft Edge extensions</h1>
+<p>The following table provides a list of APIs that you can use when building extensions for the Microsoft Edge (Chromium) browser.</p>
+
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/alarms">alarms</a></td>
+<td>Schedule code to run periodically or at a specified time in the future.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/bookmarks">bookmarks</a></td>
+<td>Create, organize, and manipulate bookmarks.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/browserAction">browserAction</a></td>
+<td>Use browser actions to place icons on the toolbar in Microsoft Edge. You can also use browser actions to add a tooltip, badge, or popup.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/browsingData">browsingData</a></td>
+<td>Remove browsing data from a user’s local profile.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/commands">commands</a></td>
+<td>Add keyboard shortcuts that trigger actions in your extension. For example, an action to open the browser or send a command to the extension.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/contentSettings">contentSettings</a></td>
+<td>In general, content settings allow you to customize the behavior of Microsoft Edge on each site, instead of globally. Change settings that control whether websites can use features such as cookies, JavaScript, and plugins.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/contextMenus">contextMenus</a></td>
+<td>Add items to the context menu in Microsoft Edge. Menu items may apply to different objects, such as images, hyperlinks, and pages.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/cookies">cookies</a></td>
+<td>Query and modify cookies, and receive notifications when they change.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/debugger">debugger</a></td>
+<td>Attach to one or more tabs to instrument network interaction, debug JavaScript, change the DOM, change CSS, and so on. Use the debugger tabId to target tabs with sendCommand, and route events by tabId from onEvent callbacks.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/declarativeContent">declarativeContent</a></td>
+<td>Take actions depending on the content of a page, without requiring permission to read the page content.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/declarativeNetRequest">declarativeNetRequest</a></td>
+<td>Provides more privacy by blocking or modifying network requests by specifying declarative rules. Allow extensions to modify network requests without intercepting the request and viewing the content.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/desktopCapture">desktopCapture</a></td>
+<td>Capture the content of a screen, individual windows, or tabs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/devtools_inspectedWindow">devtools.inspectedWindow</a></td>
+<td>Interact with the inspected window.  For example, obtain the tab ID of pages, evaluate code, refresh pages, or obtain resources on a page.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/devtools_network">devtools.network</a></td>
+<td>Retrieve information about network requests displayed by the Developer Tools in the Network panel.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/devtools.panels">devtools.panels</a></td>
+<td>Integrate your extension into the Developer Tools window UI by creating your own panels, accessing existing panels, or adding sidebars.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/downloads">downloads</a></td>
+<td>Programmatically start, monitor, manipulate, and search for downloads.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/enterprise.hardwarePlatform">enterprise.hardwarePlatform</a></td>
+<td>Get the manufacturer and model of the hardware platform where the browser runs. This API is only available to extensions installed by enterprise policy.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/events">events</a></td>
+<td>Common types used by APIs that raise events to notify you when an interesting event occurs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/extension">extension</a></td>
+<td>Any extension page can use the utilities of this API. It includes support for exchanging messages between extensions and content scripts, which is described in Message Passing.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/extensionTypes">extensionTypes</a></td>
+<td>Contains type declarations for Microsoft Edge extensions.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/fontSettings">fontSettings</a></td>
+<td>Manage font settings in Microsoft Edge.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/history">history</a></td>
+<td>Interact with the browser’s record of visited pages. You can add, remove, or query for URLs in the browser’s history. To override the history page with your own version, navigate to Override Pages.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/i18n">i18n</a></td>
+<td>Implement internationalization across your whole app or extension.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/idle">idle</a></td>
+<td>Detect when the machine’s idle state changes.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/management">management</a></td>
+<td>Manage the list of installed or running extensions. It’s useful for extensions that override the built-in New Tab page.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/notifications">notifications</a></td>
+<td>Create rich notifications using templates and display them in the system tray.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/omnibox">omnibox</a></td>
+<td>Register keywords in the Microsoft Edge address bar, also known as the omnibox.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/pageAction">pageAction</a></td>
+<td>Add icons to the Microsoft Edge toolbar, to the right of the address bar. Page actions are actions that can be taken on the current page, and aren’t applicable to all pages. Page actions appear grayed out when inactive.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/pageCapture">pageCapture</a></td>
+<td>Save tabs as MHTML files.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/permissions">permissions</a></td>
+<td>Retrieve declared, optional permissions at runtime, instead of at install time. You can use this API to display needed and approved permissions to your users.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/power">power</a></td>
+<td>Override the system’s power management features.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/printerProvider">printerProvider</a></td>
+<td>Use events to query printers, their capabilities, and to submit print jobs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/privacy">privacy</a></td>
+<td>Control features in Microsoft Edge that affects a user’s privacy. This API depends on the <code>EdgeSetting</code> prototype of <code>types</code> to get and set the configuration of Microsoft Edge.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/proxy">proxy</a></td>
+<td>Manage proxy settings for Microsoft Edge. This API depends on the <code>EdgeSetting</code> prototype of the <code>types</code> API to get and set the proxy configuration of Microsoft Edge.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/runtime">runtime</a></td>
+<td>Retrieve the background page, return details about the manifest, and listen for and respond to events in the app or extension lifecycle. You can also convert the relative path of URLs to fully qualified URLs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/sessions">sessions</a></td>
+<td>Query and restore tabs and windows from a browsing session.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/storage">storage</a></td>
+<td>Store, retrieve, and track changes to user data.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/system_memory">system.memory</a></td>
+<td>The <code>system.memory</code> API.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/system_storage">system.storage</a></td>
+<td>Query information about storage devices. You can also receive notifications when storage devices are attached or detached.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/tabCapture">tabCapture</a></td>
+<td>Interact with tab media streams.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/tabs">tabs</a></td>
+<td>Interact with the browser’s tab system to create, modify, and rearrange tabs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/topSites">topSites</a></td>
+<td>Access the top sites, also called most visited sites, that are displayed on the new tab page. These sites don’t include shortcuts customized by the user.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/tts">tts</a></td>
+<td>Play synthesized text-to-speech (TTS).</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/ttsEngine">ttsEngine</a></td>
+<td>Implement a text-to-speech (TTS) engine using an extension. Extensions that register to use this API receive events that contain utterances to be spoken and other parameters. Extensions can then use any available web technology to synthesize and output speech, and send events back to the calling function to report the status.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/types">types</a></td>
+<td>Type declarations for Microsoft Edge.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/webNavigation">webNavigation</a></td>
+<td>Receive notifications about the status of navigation requests.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/webRequest">webRequest</a></td>
+<td>Observe and analyze traffic. Intercept, block, or modify requests.</td>
+</tr>
+<tr>
+<td><a href="https://developer.chrome.com/extensions/windows">windows</a></td>
+<td>Interact with browser windows to create, modify, and rearrange windows in the browser.</td>
+</tr>
+</tbody>
+</table><h2 id="unsupported-extension-apis">Unsupported extension APIs</h2>
+<p>Microsoft Edge doesn’t support the following Extension APIs:</p>
+<ul>
+<li><code>chrome.gcm</code>.</li>
+<li><code>chrome.identity.getAccounts</code>.</li>
+<li><code>chrome.identity.getAuthToken</code> - As an alternate, you may use <code>launchWebAuthFlow</code> to fetch an OAuth2 token to authenticate users.</li>
+<li><code>chrome.instanceID</code>.</li>
+</ul>
+<h2 id="additional-considerations-for-supported-apis">Additional considerations for supported APIs</h2>
+<ul>
+<li>
+<p>The user must be signed into Microsoft Edge using an MSA or Azure Active Directory account to use <code>chrome.identity.getProfileUserInfo</code>. If the user is signed into Microsoft Edge using an on-premises Active Directory account, the API returns <code>null</code> for the email and ID values.</p>
+</li>
+<li>
+<p>Microsoft Edge doesn’t support extensions that use Chrome Web Store payments because it uses <code>identity.getAuthtoken</code> to request tokens for signed-in users. These tokens are sent to the REST-based licensing API.</p>
+</li>
+</ul>
+<!-- links -->  
+<blockquote>
+<p>[!NOTE]<br>
+Portions of this page are modifications based on work created and <a href="https://developers.google.com/terms/site-policies">shared by Google</a> and used according to terms described in the <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.<br>
+The original page is found <a href="https://developer.chrome.com/apps/external_extensions">here</a>.</p>
+</blockquote>
+<p><a href="https://creativecommons.org/licenses/by/4.0"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License"></a><br>
+This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
+</body>
+
+</html>

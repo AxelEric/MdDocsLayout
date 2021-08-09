@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="http://static/highlight.js/styles/ae/ae-highLight-pwsh.css">
+  <link rel="stylesheet" href="http://static/markdown.css">
+  <script src="http://static/highlight.js/highlight.pack.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    blockquote {
+      background-color: #ffffff40 !important;
+    }
+
+    .nav-left,
+    .nav-right {
+      padding-right: 0;
+      padding-left: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-right">
+      <a href="#warning"><b>In this article</b></a>
+    </nav>
+    <nav class="nav-left">
+      <a href="#warning"><b>Table of content</b></a>
+    </nav>
+    <div class="header">
+      <h1>Playwright</h1>
+    </div>
+  </header>
+  <main>
+    <hr>
+    <h1>Alternate extension distribution methods</h1>
+    <p>Generally, extensions are distributed through the Microsoft Edge Add-ons store. There are some scenarios where
+      developers may need to distribute extensions using alternate methods. For example:</p>
+    <ol>
+      <li>The extension is associated with other software, and it should be installed together with the rest of the
+        bundled software.</li>
+      <li>Network administrators want to distribute an extension throughout their organization.</li>
+    </ol>
+    <p>Extensions that are not loaded from the Edge Add-ons store are referred to as externally installed extensions.
+      The following list provides alternate methods of distributing externally installed extensions.</p>
+    <ul>
+      <li>Use the Windows registry (Windows only).</li>
+      <li>Use a preferences JSON file (macOS and Linux).</li>
+    </ul>
+    <h2 id="before-you-begin">Before you begin</h2>
+    <p>Ensure that you publish your extension in the Microsoft Edge Add-ons store, or package a <code>.crx</code> file
+      and ensure that it installs successfully on your computer. If you install the <code>.crx</code> file using the
+      <code>update_URL</code>, ensure you can navigate to your extension at that URL.
+    </p>
+    <p>Also, ensure that you have the following information.</p>
+    <ol>
+      <li>The file path of the <code>.crx</code> file, or the <code>update_URL</code> of your extension.</li>
+      <li>The version of your extension. The version information is available in your manifest file, or in Microsoft
+        Edge at <code>edge://extensions</code> after you load the packed extension.</li>
+      <li>The ID of your extension. The ID information is available in Microsoft Edge at <code>edge://extensions</code>
+        after you load the packed extension.</li>
+    </ol>
+    <blockquote>
+      <p>[!NOTE]<br>
+        The following examples use <code>1.0</code> as the version, and <code>aaaaaaaaaabbbbbbbbbbcccccccccc</code> for
+        the ID.</p>
+    </blockquote>
+    <h2 id="use-the-windows-registry-windows-only">Use the Windows registry (Windows only)</h2>
+    <p>To distribute your extension using the Windows registry, perform the following steps.</p>
+    <ol>
+      <li>
+        <p>Find or create the following key in the registry:</p>
+        <ul>
+          <li>32-bit Windows: <code>HKEY_LOCAL_MACHINE\Software\Microsoft\Edge\Extensions</code>.</li>
+          <li>64-bit Windows: <code>HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Edge\Extensions</code>.</li>
+        </ul>
+      </li>
+      <li>
+        <p>Create a new key, or folder, under <strong>Extensions</strong> with the same name as the ID of your
+          extension. For example, create the key with the name <code>aaaaaaaaaabbbbbbbbbbcccccccccc</code>.</p>
+      </li>
+      <li>
+        <p>In the <strong>Extensions</strong> key, create the <code>update_url</code> property, and set the value to
+          <code>https://edge.microsoft.com/extensionwebstorebase/v1/crx</code>. The <code>update_url</code> property
+          points to the <code>.crx</code> file of your extension in the Microsoft Edge Add-ons store.
+        </p>
+        <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"update_url"</span><span class="token punctuation">:</span> <span class="token string">"https://edge.microsoft.com/extensionwebstorebase/v1/crx"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        <blockquote>
+          <p>[!NOTE]<br>
+            If you want to install an extension from the Chrome Web Store, set the value of <code>update_url</code> to
+            <code>https://clients2.google.com/service/update2/crx</code>.
+          </p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Verify that your extension is listed in Microsoft Edge by navigating to <code>edge://extensions</code>.</p>
+      </li>
+    </ol>
+    <h2 id="use-a-preferences-json-file-macos-and-linux">Use a preferences JSON file (macOS and Linux)</h2>
+    <p>To distribute your extension using a preferences JSON file, perform the following steps.</p>
+    <ol>
+      <li>
+        <p>When using Linux, ensure your <code>.crx</code> extension file is available on the machine that the extension
+          will be installed on. Copy the <code>.crx</code> extension file to a local directory, or use a network share
+          that is reachable from the machine.</p>
+      </li>
+      <li>
+        <p>Create a JSON file where the name of the file corresponds to the ID of your extension. For example, create a
+          JSON file with the file name <code>aaaaaaaaaabbbbbbbbbbcccccccccc.json</code>.</p>
+      </li>
+      <li>
+        <p>Depending on your operating system, save the JSON file to one of the following folders.</p>
+        <ul>
+          <li>
+            <p><strong>macOS</strong></p>
+            <ul>
+              <li>User specific: <code>~USERNAME/Library/Application Support/Microsoft Edge/External Extensions/</code>
+              </li>
+              <li>All users: <code>/Library/Application Support/Microsoft/Edge/External Extensions/</code></li>
+            </ul>
+            <p>To prevent unauthorized users from installing extensions for all users, ensure your extension file is
+              read only. Additionally, ensure that the following conditions are met:</p>
+            <ul>
+              <li>Every directory in the path is owned by the user root.</li>
+              <li>Every directory in the path is assigned to the <code>admin</code> or <code>wheel</code> group.</li>
+              <li>Every directory in the path isn’t world writable.</li>
+              <li>The path must also be free of symbolic links.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Linux</strong></p>
+            <ul>
+              <li>User specific: <code>~/.config/microsoft-edge/External Extensions/</code></li>
+              <li>All users: <code>/usr/share/microsoft-edge/extensions/</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Depending on your scenario, copy the appropriate code that follows to your JSON file.</p>
+        <ul>
+          <li>
+            <p>Applies to Linux only. If you install from a file, specify the location and version using
+              <code>external_crx</code> and <code>external_version</code>.
+            </p>
+            <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"external_crx"</span><span class="token punctuation">:</span> <span class="token string">"/home/share/extension.crx"</span><span class="token punctuation">,</span>
+    <span class="token string">"external_version"</span><span class="token punctuation">:</span> <span class="token string">"1.0"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          </li>
+          <li>
+            <p>Applies to macOS and Linux. If you install from an <code>update_URL</code>, specify the update URL using
+              <code>external_update_url</code>.
+            </p>
+            <p>Copy the following code to your JSON file when installing from local <code>.crx</code> files on Linux
+              only.</p>
+            <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"external_update_url"</span><span class="token punctuation">:</span> <span class="token string">"http://myhost.com/mytestextension/updates.xml"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          </li>
+          <li>
+            <p>Copy the following code to your JSON file when installing from the Microsoft Edge Add-ons store on macOS
+              and Linux.</p>
+            <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"external_update_url"</span><span class="token punctuation">:</span> <span class="token string">"https://edge.microsoft.com/extensionwebstorebase/v1/crx"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>To install extensions for specific locales, list the supported locales using <code>supported_locale</code>.
+          You may also specify parent locales to install your extension for all language locales that use that parent.
+          For example, when using the parent locale <code>en</code>, your extension installs for all English locales,
+          such as <code>en-US</code>, <code>en-GB</code>, and so on. When users change their locale in their browser,
+          externally installed extensions are uninstalled. To install your extension for any locale, do not use
+          <code>supported_locales</code>.
+        </p>
+        <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"external_update_url"</span><span class="token punctuation">:</span> <span class="token string">"https://edge.microsoft.com/extensionwebstorebase/v1/crx"</span><span class="token punctuation">,</span>
+    <span class="token string">"supported_locales"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">"en"</span><span class="token punctuation">,</span> <span class="token string">"fr"</span><span class="token punctuation">,</span> <span class="token string">"de"</span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      </li>
+      <li>
+        <p>Verify that your extension is installed in Microsoft Edge by navigating to <code>edge://extensions</code>.
+        </p>
+      </li>
+    </ol>
+    <h2 id="update-and-uninstall-externally-installed-extensions">Update and uninstall externally installed extensions
+    </h2>
+    <p>Microsoft Edge scans the metadata entries in the registry each time the browser starts, and makes any changes to
+      the externally installed extensions.</p>
+    <p>To update your extension to a new version, update the version in the manifest file, and then update the version
+      in the registry.</p>
+    <p>You may need to uninstall externally installed extensions, which were installed as part of a bundle of software
+      that was previously installed on the machine. To uninstall your extension, remove your preferences JSON file or
+      remove the key from the registry.</p>
+    <!-- links -->
+    <blockquote>
+      <p>[!NOTE]<br>
+        Portions of this page are modifications based on work created and <a
+          href="https://developers.google.com/terms/site-policies">shared by Google</a> and used according to terms
+        described in the <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0
+          International License</a>. The original page is found <a
+          href="https://developer.chrome.com/apps/external_extensions">here</a>.</p>
+    </blockquote>
+    <p><a href="https://creativecommons.org/licenses/by/4.0"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+          alt="Creative Commons License"></a><br>
+      This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution
+        4.0 International License</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">Copyright 2022 <span style="font-size: 12px;">Ⓒ</span>AxelEric<div>
+  </footer>
+
+</body>
+
+</html>

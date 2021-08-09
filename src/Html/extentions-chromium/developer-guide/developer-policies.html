@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>developer-policies</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="microsoft-edge-add-ons-store-developer-policies">Microsoft Edge Add-ons store developer policies</h1>
+<h2 id="introduction-and-objective-of-this-document">Introduction and Objective of this document</h2>
+<p>Thank you for your interest in developing extensions for the Microsoft Edge Add-ons store.  The Microsoft Edge Add-ons store developer policies (Add-ons store developer policies) apply to your extensions, including your submission of extensions through <a href="https://partner.microsoft.com/dashboard/microsoftedge/public/login?ref=dd" title="Partner Center">Partner Center</a> and the provision of such extensions through the Microsoft Edge Add-ons.</p>
+<h2 id="principles">Principles</h2>
+<p>A few principles to get you started:</p>
+<ul>
+<li>You should offer unique and distinct value within your extensions for Microsoft Edge.  Provide a compelling reason to download your extensions from the Microsoft Edge Add-ons store (Microsoft Edge Add-ons).</li>
+<li>You must not mislead our joint users about what your extension does, who is offering it, and so on.</li>
+<li>You must not attempt to cheat users, the system or the ecosystem.  There is no place in our Microsoft Edge Add-ons for any kind of fraud; be it ratings and review manipulation, credit card fraud or other fraudulent activity.</li>
+</ul>
+<p>Adhering to the Microsoft Edge Add-ons store developer policies should help you make choices that enhance the appeal and audience of your extension.</p>
+<p>Your extensions are crucial to the experience of hundreds of millions of users.  We look forward to experiencing what you create and are thrilled to help deliver your extensions to the world.</p>
+<h2 id="product-policies">1. Product Policies</h2>
+<h3 id="distinct-function--value-accurate-representation">1.1 Distinct Function &amp; Value; Accurate Representation</h3>
+<p>Your extension and associated metadata must accurately and clearly reflect the source, functionality, and features that you describe.</p>
+<h4 id="extensions-must-have-a-single-purpose">1.1.1 Extensions must have a single purpose</h4>
+<p>Your extension must have a single purpose with narrow functionality.</p>
+<h4 id="describe-your-extension">1.1.2 Describe your extension</h4>
+<p>All aspects of your extension should accurately describe the functions, features and any important limitations of your extension, including required or supported input devices.  The value proposition of your extension must be clear during the first run experience.  Your extension may not use a name or icon similar to that of other extensions, and must not claim to represent a company, government body, or other entity if you do not have permission to make that representation.</p>
+<h4 id="functionality">1.1.3 Functionality</h4>
+<p>Your extension must be fully functional.</p>
+<h4 id="search-and-discovery">1.1.4 Search and Discovery</h4>
+<p>Search terms may not exceed seven unique terms and should be relevant to your extension.</p>
+<h4 id="provide-appropriate-details">1.1.5 Provide appropriate details</h4>
+<p>You must provide distinct and informative details about your extension and the functionality in listing (metadata) for your extension.  Your extension must provide a valuable and quality user experience.  Your extension must also have an active presence in Microsoft Edge Add-ons.</p>
+<h4 id="stability-and-performance">1.1.6 Stability and Performance</h4>
+<p>Your extension must not negatively impact the performance or stability of Microsoft Edge.</p>
+<h4 id="obfuscation">1.1.7 Obfuscation</h4>
+<p>Extensions with obfuscated code are not allowed.  This includes code within your extension package as well as any external code or resource fetched from the web.  You may be asked to refactor parts of your code if it is not reviewable.</p>
+<h4 id="altering-browser-settings">1.1.8 Altering Browser Settings</h4>
+<p>Your extension must not, without appropriate user consent, alter, or appear to alter, browser functionality or settings including, but not limited to: the address bar search provider and suggestions, the start or home page, the new tab page, and adding or removing favorite.</p>
+<p>Any alteration to the browser settings should be explicitly documented in the description of your extension.</p>
+<p>Your extension may only revise key settings to replace a Microsoft webpage or service with that of a third-party (such as require use of a third-party search engine or set the home page to a third-party web property) if you are employed by or otherwise associated with such third-party.</p>
+<h3 id="security">1.2 Security</h3>
+<p>Your extension must not jeopardize or compromise user security, or the security or functionality of the device, system or related systems.</p>
+<h4 id="content-security-policies">1.2.1 Content Security Policies</h4>
+<blockquote>
+<p>[!NOTE]<br>
+If you make any changes to your extension beyond the described functionality, any changes to code must be compliant with the <a href="./csp.md#relaxing-the-default-policy" title="Relaxing the default policy - Content Security Policy (CSP) | Microsoft Docs">Microsoft Edge content security policy</a>.  For example, your extension should not download a remote script and subsequently run that script in a manner that is not consistent with the described functionality.</p>
+</blockquote>
+<h4 id="unwanted-and-malicious-software">1.2.2 Unwanted and Malicious Software</h4>
+<p>Your extension must not contain or enable malware as defined by the Microsoft criteria for <a href="/windows/security/threat-protection/intelligence/criteria" title="How Microsoft identifies malware and potentially unwanted applications | Microsoft Docs">Unwanted and Malicious Software</a>.</p>
+<h4 id="dependency-on-other-software">1.2.3 Dependency on other software</h4>
+<p>Your extension may depend on non-integrated software (such as another product, module, or service) to deliver the primary functionality, provided you disclose the dependency in the description</p>
+<h4 id="extensions-update">1.2.4 Extensions Update</h4>
+<p>Unless otherwise permitted by Microsoft, your extensions must be updated only through Microsoft Edge Add-ons.</p>
+<h3 id="product-is-testable">1.3 Product is Testable</h3>
+<p>Your extension must be testable.  If it is not possible to test your extension for any reason, including, but not limited to, the items below, your extension may fail this requirement.</p>
+<h4 id="user-credentials">1.3.1 User Credentials</h4>
+<p>If your extension requires login credentials, provide a working demo account using the <code>Notes for certification</code> field.</p>
+<h4 id="availability-of-services">1.3.2 Availability of services</h4>
+<p>If your extension requires access to a server, the server must be functional to verify that it works correctly.</p>
+<h3 id="usability">1.4 Usability</h3>
+<p>Your extension must meet Microsoft Edge Add-ons store standards for usability, including, but not limited to, those listed in the subsections below.</p>
+<h4 id="compatibility-across-platforms">1.4.1 Compatibility across platforms</h4>
+<p>Your extension should be compatible with Microsoft Edge on all the devices and platforms on which they may be downloaded.  If an extension is downloaded on a device with which it is not compatible, it should detect that at launch and display a message to the user detailing the requirements that devices must meet in order to be compatible with your extension.</p>
+<h4 id="user-experience">1.4.2 User Experience</h4>
+<p>Your extension must start up promptly and must stay responsive to user input.  Your extension must continue to run and remain responsive to user input.  Your extension must shut down gracefully and not close unexpectedly.  Your extension should handle exceptions and remain responsive to user input after the exception is handled.</p>
+<h3 id="personal-information">1.5 Personal Information</h3>
+<p>The following requirements apply to extensions that access Personal Information.  Personal Information includes all information or data that identifies or could be used to identify a person, or that is associated with such information or data.</p>
+<h4 id="collect-personal-information-only-when-necessary">1.5.1 Collect Personal Information only when necessary</h4>
+<p>Your extension may collect, access, use, or transmit Personal Information (including web browsing activity); only if required by and only for use in a prominently disclosed, user-facing feature.</p>
+<h4 id="maintain-a-privacy-policy">1.5.2 Maintain a privacy policy</h4>
+<p>Regardless of whether your extension accesses, collects, or transmits Personal Information; you must provide prominent notice of and comply with your privacy policy if required by law.  Your privacy policy must inform users of the Personal Information accessed, collected, or transmitted by your extension, how that information is used, stored, and secured, and indicate the types of parties to whom it is disclosed.  Your privacy policy must describe the controls that users have over the use and sharing of their information, how they access their information, and it must comply with applicable laws and regulations.  Your privacy policy must be kept up-to-date as you add new features and functionality to your extension.</p>
+<p>If you provide Microsoft with your privacy policy, you agree to permit Microsoft to share such privacy policy with users of your extension.</p>
+<h4 id="sharing-data-with-third-parties">1.5.3 Sharing data with third parties</h4>
+<p>You may publish the Personal Information of users of your extension to an outside service or third-party through your extension or associated metadata only after obtaining opt-in consent from those users.  Opt-in consent means the users give their express permission in the user interface of your extension for the requested activity, after you:</p>
+<ul>
+<li>Describe to your users how the information is accessed, used or shared and indicate the types of parties to whom it is disclosed, and</li>
+<li>Provide your users a mechanism in your extension user interface through which they have the option to later rescind the permission and opt-out.</li>
+</ul>
+<h4 id="sharing-information-of-non-users">1.5.4 Sharing information of non-Users</h4>
+<p>If you publish a person’s Personal Information to an outside service or third-party through your extension or the metadata, but the person whose information is being shared is not a user of your extension;</p>
+<ol>
+<li>You must obtain express written consent to publish that Personal Information.</li>
+<li>You must permit the person whose information is shared to withdraw that consent at any time.</li>
+<li>Your privacy policy must clearly disclose that you may collect personal information in this manner.</li>
+<li>If required by applicable law you must delete the Personal Information of any individual upon request, including individuals whose information you collect in this manner.</li>
+<li>If your extension provides users with access to another person’s Personal Information, this requirement also applies.</li>
+</ol>
+<h4 id="transmit-information-securely">1.5.5 Transmit information securely</h4>
+<p>If your extension collects, stores, or transmits Personal Information; it must do so securely by using modern cryptography methods.</p>
+<h4 id="highly-sensitive-information">1.5.6 Highly sensitive information</h4>
+<p>Your extension must not collect, store, or transmit highly sensitive personal information, such as health or financial data, unless the information is related to the functionality of your extension.  Your extension must also obtain express user consent before collecting, storing, or transmitting such information.</p>
+<h3 id="permissions">1.6 Permissions</h3>
+<p>Your extension must only request those permissions that are necessary for functioning.  You must provide a description of how your extension works.  Your extension must only perform as described.  Your extension may not request permission for capabilities that go beyond the capabilities required to perform and function as declared.</p>
+<h3 id="localization">1.7 Localization</h3>
+<p>You should localize your extension for all languages that your extension claims to support.  The text of the description of your extension should be localized in each language that you declare.<br>
+If your extension is localized such that some features are not available in a localized version, you must clearly state or display the limits of localization in your extension description. The experience provided by an Extension must be reasonably similar in all languages that it supports.</p>
+<h3 id="financial-transactions">1.8 Financial Transactions</h3>
+<p>If your product includes in-product purchase, subscriptions, virtual currency, billing functionality, or captures financial information; the requirements in the following sections apply.</p>
+<h4 id="paid-features">1.8.1 Paid Features</h4>
+<p>Your extension may enable users to consume digital content or services purchased through a third-party purchase mechanism or API.</p>
+<p>You must use a secure third-party purchase API for purchases of physical goods or services.  You must use a secure third-party purchase API for payments made in connection with any other services including real world gambling or charitable contributions.</p>
+<ul>
+<li>If your extension is used to facilitate or collect charitable contributions or to conduct a promotional sweepstakes or contest, you must do so in compliance with applicable law.</li>
+<li>You must also state clearly that Microsoft is not the fundraiser or sponsor of the promotion.</li>
+<li>In-product offerings sold in your extension must not be converted to any legally valid currency (such as USD, Euro, and so on) or any physical goods or services.</li>
+</ul>
+<p>The following requirements apply to your use of a secure third-party purchase API:</p>
+<ul>
+<li>At the time of the transaction or when you collect any payment or financial information from the user; your extension must identify the commerce transaction provider, authenticate the user, and obtain user confirmation for the transaction.  A commerce transaction provider maintains a secure platform for financial exchanges.</li>
+<li>Your extension may offer users the ability to save this authentication, but users must have the ability to either require an authentication on every transaction or to turn off in-product transactions.</li>
+<li>If your extension collects credit card information or uses a third-party payment processor that collects credit card information, the payment processing must meet the current PCI Data Security Standard (PCI DSS).</li>
+</ul>
+<h4 id="disclosing-paid-features">1.8.2 Disclosing paid features</h4>
+<p>Your extension and associated metadata must provide information about the types of in-product purchases offered and the range of prices.  You must not mislead users and must be clear about the nature of your in-product promotions and offerings including the scope and terms of any trial experiences.  If your extension restricts access to user-created content during or after a trial, you must notify users in advance.  In addition, your extension must make it clear to users that they are initiating a purchase option in your extension.</p>
+<h3 id="notifications">1.9 Notifications</h3>
+<p>Your extension must respect system settings for notifications.  This means any presentation of ads and notifications to users must be consistent with user preferences, regardless of whether the notifications are provided by the Microsoft Push Notification Service (MPNS), Windows Push Notification Service (WNS), or any other service.  If the user disables notifications, either on a product-specific or system-wide basis, your extension must remain functional.</p>
+<p>If your product uses MPNS or WNS to transmit notifications, it must comply with the following requirements:</p>
+<h4 id="general-guidance">1.9.1 General Guidance</h4>
+<p>Notifications provided through WNS or MPNS are considered product content and are subject to all Add-ons Catalog Developer Policies.</p>
+<h4 id="ownership-of-notifications">1.9.2 Ownership of notifications</h4>
+<p>You must not obscure or try to disguise the source of any notification initiated from your extension.</p>
+<h4 id="no-confidential-or-sensitive-information">1.9.3 No Confidential or Sensitive Information</h4>
+<p>You must not include in a notification any information users may reasonably consider confidential or sensitive.</p>
+<h4 id="purpose-of-notifications">1.9.4 Purpose of notifications</h4>
+<p>Notifications sent from your extension must relate to that extension or to other extensions you publish in Microsoft Edge Add-ons store and must not include promotional messages of any kind that are not related to your extensions.</p>
+<h3 id="advertising-conduct-and-content">1.10 Advertising Conduct and Content</h3>
+<p>For all advertising related activities, the following requirements apply:</p>
+<h4 id="purpose">1.10.1 Purpose</h4>
+<p>The primary content of your extension must not be advertising, and advertising must be clearly distinguishable from other content in your extension.</p>
+<h4 id="policies-and-agreements">1.10.2 Policies and Agreements</h4>
+<p>Any advertising content your extension displays must adhere to <a href="https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies" title="Creative acceptance policies - Microsoft Advertising">Microsoft Creative Acceptance Policy</a>.<br>
+If your extension displays ads, all content displayed must conform to the advertising requirements of the <a href="/legal/windows/agreements/app-developer-agreement" title="App Developer Agreement | Microsoft Docs">App Developer Agreement</a> and this Policy.</p>
+<h4 id="quality-of-advertising">1.10.3 Quality of advertising</h4>
+<ul>
+<li>The primary purpose of your extension must not be to get users to click ads.</li>
+<li>Your extension must not do anything that interferes with or diminishes the visibility, value, or quality of any ads that it does display.</li>
+</ul>
+<h4 id="promotions">1.10.4 Promotions</h4>
+<p>If you purchase or create promotional ad campaigns to promote your extensions through the ad campaign functionality in <a href="https://partner.microsoft.com/dashboard/microsoftedge/public/login?ref=dd" title="Partner Center">Partner Center</a>, all ad materials you provide to Microsoft, including any associated landing pages, must comply with <a href="https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-specs" title="Creative Specifications - Microsoft Advertising">Microsoft Creative Specifications Policy</a> and <a href="https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies" title="Creative acceptance policies - Microsoft Advertising">Microsoft Creative Acceptance Policy</a>.</p>
+<h4 id="notifying-users-of-opt-out-for-interest-based-advertising">1.10.5 Notifying Users of Opt-Out for Interest-Based Advertising</h4>
+<p>Your privacy statement or terms of use must let users know you plan to send Personal Information to the ad service provider and must tell users how they may opt-out of interest-based advertising.</p>
+<h4 id="other-guidelines">1.10.6 Other guidelines</h4>
+<p>If your extension is directed at children under the age of 13, as defined in the <a href="https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy" title="Children's Privacy - Federal Trade Commission">Children’s Online Privacy Protection Act</a>; you must notify Microsoft of this fact in <a href="https://partner.microsoft.com/dashboard/microsoftedge/public/login?ref=dd" title="Partner Center">Partner Center</a> and ensure that all ad content displayed in your extension is appropriate for children under the age of 13.</p>
+<h2 id="content-policies">2 Content Policies</h2>
+<p>The following policies apply to content and metadata (including publisher name, extension name, extension icon, extension description, extension screenshots, extension trailers and trailer thumbnails, and any other extension metadata) offered for distribution in Microsoft Edge Add-ons.  Content means the images, sounds, videos and text contained in your extension, the tiles, notifications, error messages or ads exposed through your extension, and anything delivered from a server or to which your extension connects.  Because extensions and Microsoft Edge Add-ons are used around the world, these requirements are interpreted and applied in the context of regional and cultural norms.</p>
+<h3 id="content-requirements-for-microsoft-edge-addon-catalog-listing">2.1 Content Requirements for Microsoft Edge Addon Catalog Listing</h3>
+<p>Metadata and other content you submit to accompany your extension may not contain mature content.<br>
+Submissions that do not meet Microsoft Edge Add-ons store listings requirements are rejected or promptly removed.</p>
+<h3 id="content-including-names-logos-original-and-third-party">2.2 Content Including Names, Logos, Original, and Third-party</h3>
+<p>All content in your extension and associated metadata must be either originally created by the you or appropriately licensed from a third-party rights holder and must be used only as permitted by the rights holder or as otherwise permitted by law.</p>
+<h3 id="risk-of-harm">2.3 Risk of Harm</h3>
+<h4 id="requirements">2.3.1 Requirements</h4>
+<p>Your extension must not contain any content that facilitates or glamorizes the following real world activities: (a) extreme or gratuitous violence; (b) human rights violations; (c) the creation of illegal weapons; or (d) the use of weapons against a person, animal, or real or personal property.</p>
+<h4 id="responsibility">2.3.2 Responsibility</h4>
+<p>Your extension must not: (a) pose a safety risk to, nor result in discomfort, injury or any other harm to end users or to any other person or animal; or (b) pose a risk of or result in damage to real or personal property.  You are solely responsible for all extension safety testing, certificate acquisition, and implementation of any appropriate feature safeguards.  You must not disable any platform safety or comfort features and you must include all applicable legally required and industry-standard warnings, notices, and disclaimers in your extension.</p>
+<h3 id="defamatory-libelous-slanderous-and-threatening">2.4 Defamatory, Libelous, Slanderous, and Threatening</h3>
+<p>Your extension must not contain any content that is defamatory, libelous, slanderous, or threatening.</p>
+<h3 id="offensive-content">2.5 Offensive Content</h3>
+<p>Your extension and associated metadata must not contain potentially sensitive or offensive content.  Content may be considered sensitive or offensive in certain countries/regions because of local laws or cultural norms.  In addition, your extension and associated metadata must not contain content that advocates discrimination, hatred, or violence based on considerations of race, ethnicity, national origin, language, gender, age, disability, religion, sexual orientation, status as a veteran, or membership in any other social group.</p>
+<h3 id="alcohol-tobacco-and-drugs">2.6 Alcohol, Tobacco, and Drugs</h3>
+<p>Your extension must not contain any content that facilitates or glamorizes excessive or irresponsible use of alcohol or tobacco products or drugs.</p>
+<h3 id="adult-content">2.7 Adult Content</h3>
+<p>Your extension must not contain or display content that a reasonable person would consider pornographic or sexually explicit.</p>
+<h3 id="prohibited-content-services-and-activity">2.8 Prohibited Content, Services, and Activity</h3>
+<p>Your extension must adhere to the following conditions.</p>
+<ul>
+<li>Your extension must not contain content or provide services that facilitate online gambling.  Online gambling includes but is not limited to online casinos, sports betting, lotteries, or games of skill that offer prizes of cash or other value.</li>
+<li>Your extension must not provide unauthorized access to website content, such as by circumventing paywalls or login restrictions.</li>
+<li>Your extension must not provide, encourage, or enable the unauthorized access, download, or streaming of copyrighted content or media.</li>
+<li>Your extension must not mine cryptocurrency.</li>
+</ul>
+<h3 id="illegal-activity">2.9 Illegal Activity</h3>
+<p>Your extension must not contain content or functionality that encourages, facilitates or glamorizes illegal activity in the real world.</p>
+<h3 id="excessive-profanity-and-inappropriate-content">2.10 Excessive Profanity and Inappropriate Content</h3>
+<ul>
+<li>Your extension must not contain excessive or gratuitous profanity.</li>
+<li>Your extension must not contain or display content that a reasonable person considers obscene.</li>
+</ul>
+<h3 id="countryregion-specific-requirements">2.11 Country/Region Specific Requirements</h3>
+<p>Content that is offensive in any country/region to which your extension is targeted is not allowed.  Content may be considered offensive in certain countries/regions because of local laws or cultural norms.  Examples of potentially offensive content in certain countries/regions include the following:</p>
+<p><strong>China</strong></p>
+<ul>
+<li>Prohibited sexual content</li>
+<li>Disputed territory or region references</li>
+<li>Providing or enabling access to content or services that are illegal under applicable local law</li>
+</ul>
+<h3 id="age-ratings">2.12 Age Ratings</h3>
+<h4 id="mature-content">2.12.1 Mature Content</h4>
+<p>When you submit your extension to <a href="https://partner.microsoft.com/dashboard/microsoftedge/public/login?ref=dd" title="Partner Center">Partner Center</a>, you must indicate whether your extension displays content that should be marked “Mature”.  When determining the rating for your extension, consider all the content in your app, including user generated content and ads, and to the content that your extension links.  If you indicate that your extension does not contain any “Mature” content, you are responsible for maintaining the accuracy of this rating.  Regardless of the rating given to your extension, it must still adhere to all the content requirements of Microsoft Edge Add-ons Developer policies</p>
+<h4 id="ratings-change">2.12.2 Ratings Change</h4>
+<p>If your extension provides content (such as user-generated, retail, or other web-based content) that might be appropriate for a higher age rating than the assigned rating, you must require users to opt into receiving such content by using a content filter or by signing in with a pre-existing account.</p>
+<h3 id="videos">2.13 Videos</h3>
+<p>If you submit a promotional video in the listing, it should follow all the content guidelines mentioned in this policy.  If you choose to provide a YouTube link, you must ensure that advertisements are disabled for the specific videos that you want to embed.  For more information about how ads are enabled and disabled on YouTube, see <a href="https://support.google.com/youtube/answer/2531367?ref_topic=7072227" title="Set your default ad formats - YouTube Help">support.google.com/youtube/answer/2531367?ref_topic=7072227</a> and <a href="https://support.google.com/youtube/answer/132596" title="Ads on embedded videos - YouTube Help">support.google.com/youtube/answer/132596</a>.</p>
+<!-- links -->
+</div>
+</body>
+
+</²²html>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Prepare to update your extensions from Manifest</title>
+  <link rel="stylesheet" href="http://static/highlight.js/styles/ae/ae-highLight-pwsh.css">
+  <link rel="stylesheet" href="http://static/markdown.css">
+  <script src="http://static/highlight.js/highlight.pack.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    blockquote {
+      background-color: #ffffff40 !important;
+    }
+
+    .nav-left,
+    .nav-right {
+      padding-right: 0;
+      padding-left: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-right">
+      <a href="#warning"><b>In this article</b></a>
+      <ul>
+        <li><a href="./migrate-your-extension#Prepare-to-update-your-extensions">Prepare to update your extensions</h1>
+        </li>
+        <li><a href="./migrate-your-extension#Remotely-hosted-code">Remotely hosted code</a></li>
+        <li><a href="./migrate-your-extension#Run-time-host-permissions">Run-time host permissions</a></li>
+        <li><a href="./migrate-your-extension#Cross-origin-requests-in-content-scripts">Cross-origin requests in content scripts</a></li>
+        <li><a href="./migrate-your-extension#Web-Request-API">Web Request API</a></li>
+        <li><a href="./migrate-your-extension#Background-service-workers">Background service workers</a></li>
+        <li><a href="./migrate-your-extension#When-are-these-changes-available-in-Microsoft-Edge">When are these changes available in Microsoft
+            Edge</a></li>
+      </ul>
+
+    </nav>
+    <nav class="nav-left">
+      <a href="#warning"><b>Table of content</b></a>
+    </nav>
+    <div class="header">
+      <h1>Prepare-to-update</h1>
+    </div>
+  </header>
+  <main>
+    <h1>Prepare to update your extensions
+      to v3</h1>
+    <p>This document lists important changes being implemented as part of Manifest v3, which is the next version of the
+      Chromium Extensions platform. The Microsoft Edge extensions team updates this document as the implementation
+      progresses. For detailed guidance on migrating your extension to Manifest v3, navigate to <a
+        href="https://developer.chrome.com/docs/extensions/mv3/mv3-migration-checklist"
+        title="Manifest V3 migration checklist | Chrome Developers">Migrating to Manifest V3</a>.</p>
+    <h2 id="remotely-hosted-code">Remotely hosted code</h2>
+    <p>Today, parts of the extensions code is hosted remotely, and not include it as part of the extension package
+      during the validation process. While this offers flexibility to change code without resubmitting the extension to
+      the store, the code may be exploited after installation. To ensure <a
+        href="https://microsoftedge.microsoft.com/addons" title="Microsoft Edge Add-ons">Microsoft Edge Add-ons</a>
+      lists validated extensions, the Microsoft Edge extensions team disallows extensions from using remotely hosted
+      code. This change makes extensions more secure. Developers will need to package and submit all code used by the
+      extension for validation. Alternatively, you may use the <code>eval()</code> function in a <a
+        href="https://developer.chrome.com/docs/extensions/mv2/sandboxingEval"
+        title="Using eval in Chrome extensions | Chrome Developers">sandboxed environment</a>.</p>
+    <h2 id="run-time-host-permissions">Run-time host permissions</h2>
+    <p>At installation time, extensions may request blanket permissions to access all sites and content. These
+      permissions allow extensions to operate with minimum intervention, and create a risk to user privacy and security.
+      To improve transparency, the Microsoft Edge extensions team provides controls for users to allow or restrict
+      access to websites at runtime.</p>
+    <h2 id="cross-origin-requests-in-content-scripts">Cross-origin requests in content scripts</h2>
+    <p>Today, content scripts request access to any origin including origins that aren’t allowed by the website. The
+      behavior breaks cross-origin principles. Going forward, the Microsoft Edge extensions team requires content
+      scripts to have the same permissions as the webpage into which the scripts are injected, closing a potential
+      security loophole. To perform cross-origin requests, you need to use background scripts to relay responses back to
+      content scripts. These changes are available and behind a flag. For more information, navigate to this <a
+        href="https://www.chromium.org/Home/chromium-security/extension-content-script-fetches"
+        title="Changes to Cross-Origin Requests in Chrome Extension Content Scripts | The Chromium Projects">document</a>.
+    </p>
+    <h2 id="web-request-api">Web Request API</h2>
+    <p>The Microsoft Edge extensions team replaces <a
+        href="https://developer.chrome.com/docs/extensions/reference/webRequest"
+        title="chrome.webRequest | Chrome Developers">Web Request API</a> with <a
+        href="https://developer.chrome.com/docs/extensions/reference/declarativeNetRequest"
+        title="chrome.declarativeNetRequest | Chrome Developers">Declarative Net Request API</a>, but continues to keep
+      the observational capabilities of the Web Request API. Except in some specific scenarios where observational
+      capabilities of the Web Request API are required by the extension, the Microsoft Edge extensions team recommends
+      using the DNR APIs only. The Microsoft Edge extensions team believes this change will have positive impact on
+      extensions that use feature-rich declarative capabilities. As more extensions transition to the DNR APIs, this
+      change will improve user privacy, which contributes to enhancing trust in the use of extensions.<br>
+      Enterprises may continue to use the blocking behavior of the Web Request API for extensions managed through
+      enterprise policies. For more information about extension policies, navigate to <a
+        href="/deployedge/microsoft-edge-policies#extensions"
+        title="Extensions - Microsoft Edge - Policies | Microsoft Docs">Microsoft Edge – Policies</a>.</p>
+    <h2 id="background-service-workers">Background service workers</h2>
+    <p>Service workers are available for testing in Canary. To migrate your extensions from background pages to service
+      workers, refer to <a href="https://developer.chrome.com/docs/extensions/mv3/migrating_to_service_workers"
+        title="Migrating from background pages to service workers | Chrome Developers">Migrating from Background Pages
+        to Service Workers</a>. The Microsoft Edge extensions team is evaluating and investigating the impact that this
+      change brings to both developers and users. The Microsoft Edge extensions team adds additional details on the
+      change to this document in the future.</p>
+    <h2 id="when-are-these-changes-available-in-microsoft-edge">When are these changes available in Microsoft Edge</h2>
+    <p>The current declarative net request API implementation is available in our Stable and Beta channels. Test the
+      changes, and provide feedback. The Microsoft Edge extensions team contributes to development efforts and
+      investigate further changes.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th align="left">Channel name</th>
+          <th align="left">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">Microsoft Edge 84 Stable</td>
+          <td align="left">DNR API is available for testing</td>
+        </tr>
+        <tr>
+          <td align="left">Microsoft Edge 85 Beta</td>
+          <td align="left">Header modification support is available</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>When the changes are made to Chromium, the Microsoft Edge extensions team shares timelines so that you may update
+      your code and republish extensions to the store.</p>
+    <p>The Microsoft Edge extensions team continues publishing updates on the blog. You may provide your feedback on the
+      changes through <a
+        href="https://techcommunity.microsoft.com/t5/articles/manifest-v3-changes-are-now-available-in-microsoft-edge/m-p/1780254"
+        title="Manifest V3 changes are now available in Microsoft Edge | Microsoft Tech Community">Tech Community</a>.
+    </p>
+    <!-- links -->
+  </main>
+
+  <footer>
+    <div class="footer">Copyright 2022 <span style="font-size: 12px;">Ⓒ</span>AxelEric<div>
+  </footer>
+
+</body>
+
+</html>

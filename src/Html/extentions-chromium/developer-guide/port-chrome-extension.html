@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>port-chrome-extension</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><hr>
+<h2 id="description-process-of-porting-chrome-extension-to-microsoft-edgetitle-port-chrome-extension-to-microsoft-edgeauthor-msedgeteamms.author-msedgedevrelms.date-02172021ms.topic-articlems.prod-microsoft-edgekeywords-edge-chromium-extensions-development-browser-extensions-addons-partner-center-developer">description: Process of porting Chrome extension to Microsoft Edge<br>
+title: Port Chrome extension To Microsoft Edge<br>
+author: MSEdgeTeam<br>
+ms.author: msedgedevrel<br>
+ms.date: 02/17/2021<br>
+ms.topic: article<br>
+ms.prod: microsoft-edge<br>
+keywords: edge-chromium, extensions development, browser extensions, addons, partner center, developer</h2>
+<h1 id="port-your-extension">Port your extension</h1>
+<p>Microsoft Edge allows you to port your Chrome extension with minimal changes.  The Extension APIs and manifest keys supported by Chrome are code-compatible with Microsoft Edge.  For a list of APIs supported by Microsoft Edge, navigate to <a href="./api-support.md" title="API support | Microsoft Docs">API support</a>.</p>
+<p>To port your Chrome extension, complete the following steps.</p>
+<ol>
+<li>
+<p>Review the Chrome extension APIs used in your extensions with the Microsoft Edge extensions <a href="./api-support.md" title="API support | Microsoft Docs">supported APIs</a> list.</p>
+<blockquote>
+<p>[!NOTE]<br>
+If your extension uses APIs that are not supported by Microsoft Edge, it may not port directly.</p>
+</blockquote>
+</li>
+<li>
+<p>In the manifest file, set the <code>update_URL</code> field to <code>https://edge.microsoft.com/extensionwebstorebase/v1/crx</code>.  The value points to the <code>.crx</code> file of your extension in the Microsoft Edge Add-ons store and allows Microsoft Edge to check for extension updates.</p>
+</li>
+<li>
+<p>If <code>Chrome</code> is used in either the name or the description of your extension, rebrand your extension using <code>Microsoft Edge</code>.  To pass the certification process, the changes are required.</p>
+</li>
+<li>
+<p>Test your extension to check if it works in Microsoft Edge by <a href="../getting-started/extension-sideloading.md" title="Sideload your extension | Microsoft Docs">sideloading your extension</a>.</p>
+</li>
+<li>
+<p>If you face any issues, you may debug your extensions in Microsoft Edge by using the DevTools, or <a href="mailto:ext_dev_support@microsoft.com" title="ext_dev_support@microsoft.com">contact us</a>.</p>
+</li>
+<li>
+<p>Follow the <a href="../publish/publish-extension.md" title="Publish your extension | Microsoft Docs">publishing guidelines</a> to publish your extension on Microsoft Edge Add-ons store.</p>
+<blockquote>
+<p>[!NOTE]<br>
+If your extension exchanges messages with a native app using <code>chrome.runtime.connectNative</code>, ensure that you set <code>allowed_origins</code> to <code>extension://[Microsoft-Catalog-extensionID]</code> in your native messaging host manifest file.  The setting allows the app to identify your extension.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="next-steps">Next steps</h2>
+<p>After your extension package is ready to publish in the Microsoft Edge Add-ons store, <a href="../publish/create-dev-account.md" title="Developer registration | Microsoft Docs">create a developer account</a> and <a href="../publish/publish-extension.md" title="Publish your extension | Microsoft Docs">publish your extension</a>.</p>
+<!-- links -->  
+</div>
+</body>
+
+</html>

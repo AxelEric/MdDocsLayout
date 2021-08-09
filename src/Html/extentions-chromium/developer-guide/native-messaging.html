@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>native-messaging</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><hr>
+<h2 id="description-native-messaging-documentationtitle-native-messagingauthor-msedgeteamms.author-msedgedevrelms.date-03312021ms.topic-articlems.prod-microsoft-edgekeywords-edge-chromium-extensions-development-browser-extensions-addons-partner-center-developer">description: Native messaging documentation<br>
+title: Native Messaging<br>
+author: MSEdgeTeam<br>
+ms.author: msedgedevrel<br>
+ms.date: 03/31/2021<br>
+ms.topic: article<br>
+ms.prod: microsoft-edge<br>
+keywords: edge-chromium, extensions development, browser extensions, addons, partner center, developer</h2>
+<h1 id="native-messaging">Native messaging</h1>
+<p>Extensions communicate with a native Win32 app installed on a user’s device using message passing APIs.  The native app host sends and receives messages with extensions using standard input and standard output.  Extensions using native messaging are installed in Microsoft Edge similar to any other extension.  However, native apps are not installed or managed by Microsoft Edge.</p>
+<p>To acquire the extension and native app host, you have two distribution models.</p>
+<ul>
+<li>Package your extension and the host together.  When a user installs the package, both the extension and the host are installed.</li>
+<li>Install your extension using the <a href="https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home" title="Microsoft Edge Add-ons">Microsoft Edge Add-ons store</a>, and your extension prompts users to install the host.</li>
+</ul>
+<p>To create your extension to send and receive messages with native app hosts, complete the following steps.</p>
+<h2 id="step-1---add-permissions-to-the-extension-manifest">Step 1 - Add permissions to the extension manifest</h2>
+<p>Add the <code>nativeMessaging</code> permission to the <strong>manifest.json</strong> file of the extension.  The following code snippet is an example of <strong>manifest.json</strong>.</p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Native Messaging Example"</span><span class="token punctuation">,</span>
+    <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"1.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"manifest_version"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> 
+    <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"Send a message to a native app."</span><span class="token punctuation">,</span>
+    <span class="token string">"app"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+        <span class="token string">"launch"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+            <span class="token string">"local_path"</span><span class="token punctuation">:</span> <span class="token string">"main.html"</span> 
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token string">"icons"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+        <span class="token string">"128"</span><span class="token punctuation">:</span> <span class="token string">"icon-128.png"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token string">"permissions"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"nativeMessaging"</span><span class="token punctuation">]</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="step-2---create-your-native-messaging-host-manifest-file">Step 2 - Create your native messaging host manifest file</h2>
+<p>Native apps must provide a native messaging host manifest file.  The manifest file contains the following information.</p>
+<ul>
+<li>The path to the native messaging host runtime.</li>
+<li>The method of communication with the extension.</li>
+<li>A list of allowed extensions to which it communicates.</li>
+</ul>
+<p>The browser reads and validates the native messaging host manifest.  The browser doesn’t install or manage the native messaging host manifest file.</p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"com.my_company.my_app"</span><span class="token punctuation">,</span>
+    <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"My App"</span><span class="token punctuation">,</span>
+    <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token string">"C:\\Program Files\\My App\\chrome_native_messaging_host.exe"</span><span class="token punctuation">,</span>
+    <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"stdio"</span><span class="token punctuation">,</span>
+    <span class="token string">"allowed_origins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"chrome-extension://knldjmfmopnpolahpmmgbagdohdnhkik/"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The host manifest file must be a valid JSON file that contains the following keys.</p>
+<p>:::row:::<br>
+:::column span=“1”:::<br>
+<strong>Key</strong><br>
+:::column-end:::<br>
+:::column span=“3”:::<br>
+<strong>Details</strong><br>
+:::row-end:::<br>
+:::row:::<br>
+:::column span=“1”:::<br>
+—</p>
+<pre><code>  `name`  
+</code></pre>
+<p>:::column-end:::<br>
+:::column span=“3”:::<br>
+—</p>
+<pre><code>  Specifies the name of the native messaging host.  Clients pass the string to `runtime.connectNative` or `runtime.sendNativeMessage`.  
+  
+  *   The value must only contain lowercase alphanumeric characters, underscores, and dots.  
+  *   The value must not start or end with a dot, and a dot must not be followed by another dot.  
+</code></pre>
+<p>:::column-end:::<br>
+:::row-end:::<br>
+:::row:::<br>
+:::column span=“1”:::<br>
+—</p>
+<pre><code>  `description`  
+</code></pre>
+<p>:::column-end:::<br>
+:::column span=“3”:::<br>
+—</p>
+<pre><code>  Describes the app.  
+</code></pre>
+<p>:::column-end:::<br>
+:::row-end:::<br>
+:::row:::<br>
+:::column span=“1”:::<br>
+—</p>
+<pre><code>  `path`  
+</code></pre>
+<p>:::column-end:::<br>
+:::column span=“3”:::<br>
+—</p>
+<pre><code>  Specifies the path to the native messaging host binary.  
+  
+  *   On Windows devices, you may use relative paths to the directory that contains the manifest file.  
+  *   On macOS and Linux, the path must be absolute.  
+      
+  The host process starts with the current directory set to the directory that contains the host binary.  For example \(Windows\), if the parameter is set to `C:\App\nm_host.exe`, the binary is started using the current directory \(`C:\App\`\).  
+</code></pre>
+<p>:::column-end:::<br>
+:::row-end:::<br>
+:::row:::<br>
+:::column span=“1”:::<br>
+—</p>
+<pre><code>  `type`  
+</code></pre>
+<p>:::column-end:::<br>
+:::column span=“3”:::<br>
+—</p>
+<pre><code>  Specifies the type of the interface used to communicate with the native messaging host.  The value instructs Microsoft Edge to use `stdin` and `stdout` to communicate with the host.  
+  The only acceptable value is `stdio`.  
+</code></pre>
+<p>:::column-end:::<br>
+:::row-end:::<br>
+:::row:::<br>
+:::column span=“1”:::<br>
+—</p>
+<pre><code>  `allowed_origins` 
+</code></pre>
+<p>:::column-end:::<br>
+:::column span=“3”:::<br>
+—</p>
+<pre><code>  Specifies the list of extensions that have access to the native messaging host.  To turn on your app to identify and communicate with an extension, in your native messaging host manifest file set the following value.  
+  
+  ```json
+  "allowed_origins": ["chrome-extension://{microsoft_catalog_extension_id}"]
+  ```  
+</code></pre>
+<p>:::column-end:::<br>
+:::row-end:::</p>
+<p>Sideload your extension to test native messaging with the host.<br>
+To sideload your extension during development and retrieve <code>microsoft_catalog_extension_id</code>, complete the following actions.</p>
+<ol>
+<li>Navigate to <code>edge://extensions</code>, and then turn on the Developer mode toggle button.</li>
+<li>Choose <strong>Load unpacked</strong>, and then choose your extension package to sideload.</li>
+<li>Choose <strong>OK</strong>.</li>
+<li>Navigate to <code>edge://extensions</code> page and verify your extension is listed.</li>
+<li>Copy the key from <code>microsoft_catalog_extension_id</code> (ID) from the extension listing on the page.</li>
+</ol>
+<p>When you’re ready to distribute your extension to users, publish your extension to the Microsoft Edge Add-ons store.  The extension ID of the published extension may differ from the ID used while sideloading your extension.  If the ID changed, update <code>allowed_origins</code> in the host manifest file with the ID of your published extension.</p>
+<h2 id="step-3---copy-the-native-messaging-host-manifest-file-to-your-system">Step 3 - Copy the native messaging host manifest file to your system</h2>
+<p>The final step involves copying the native messaging host manifest file to your computer, and ensuring the manifest file is correctly configured.  To ensure your manifest file is placed in the expected location, complete the following the actions.  The location varies by platform.</p>
+<blockquote>
+<p>[!NOTE]<br>
+Ensure that you provide read permissions on the manifest file, and run permissions on the host runtime.</p>
+</blockquote>
+<h3 id="windows"><a href="#tab/windows/">Windows</a></h3>
+<p><a id="copy-manifest-file"></a></p>
+<p>The manifest file may be located anywhere in the file system.  The app installer must create a registry key and set the default value of the key to the full path of the manifest file.  The following locations are examples of registry keys.</p>
+<pre class=" language-output"><code class="prism  language-output">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\NativeMessagingHosts\com.my_company.my_app
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Edge\NativeMessagingHosts\com.my_company.my_app
+</code></pre>
+<p>To add a registry key to the directory with the manifest key, complete one of the following actions.</p>
+<ul>
+<li>
+<p>Run command in command prompt.</p>
+<ol>
+<li>
+<p>Run the following command.</p>
+<pre class=" language-shell"><code class="prism  language-shell">REG ADD "HKCU\Software\Microsoft\Edge\NativeMessagingHosts\com.my_company.my_app" /ve /t REG_SZ /d "C:\path\to\nmh-manifest.json" /f
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a <code>.reg</code> file and run it.</p>
+<ol>
+<li>
+<p>Copy the following command into a <code>.reg</code> file.</p>
+<pre class=" language-shell"><code class="prism  language-shell">Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Edge\NativeMessagingHosts\com.my_company.my_app]
+@="C:\\path\\to\\nmh-manifest.json"
+</code></pre>
+</li>
+<li>
+<p>Run the <code>.reg</code> file.</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>Microsoft Edge queries the <code>HKEY_CURRENT_USER</code> root key followed by <code>HKEY_LOCAL_MACHINE</code>.  In both of the keys, the 32-bit registry is searched first, and then the 64-bit registry is searched to identify native messaging hosts.  The registry key specifies the location of the native messaging host manifest.  If the registry entries for Microsoft Edge don’t have the location of the host manifest, the Chromium and Chrome registry locations are used as fallback options.  If Microsoft Edge finds the registry key at any of the previously listed locations, it doesn’t query the locations that are listed in the following code snippet.  If you run your created <code>.reg</code> file as part of a batch script, ensure you run it using an administrator command prompt.</p>
+<p>The following list is the search order for the registry locations.</p>
+<pre class=" language-output"><code class="prism  language-output">HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Microsoft\Edge\NativeMessagingHosts\
+HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Chromium\NativeMessagingHosts\
+HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Google\Chrome\NativeMessagingHosts\
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\NativeMessagingHosts\
+HKEY_CURRENT_USER\SOFTWARE\Chromium\NativeMessagingHosts\
+HKEY_CURRENT_USER\SOFTWARE\Google\Chrome\NativeMessagingHosts\
+
+HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Edge\NativeMessagingHosts\
+HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Chromium\NativeMessagingHosts\
+HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Google\Chrome\NativeMessagingHosts\
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Edge\NativeMessagingHosts\
+HKEY_LOCAL_MACHINE\SOFTWARE\Chromium\NativeMessagingHosts\
+HKEY_LOCAL_MACHINE\SOFTWARE\Google\Chrome\NativeMessagingHosts\
+</code></pre>
+<blockquote>
+<p>[!NOTE]<br>
+If you have extensions on the Microsoft Edge Add-ons and the Chrome Webstore, you must add the extension IDs corresponding to both the stores in the <code>allowed_origins</code> of the host manifest file because only the host manifest corresponding to the first registry location found is read.</p>
+</blockquote>
+<h3 id="macos"><a href="#tab/macos/">macOS</a></h3>
+<p><a id="copy-manifest-file"></a></p>
+<p>To store the manifest file, complete one of the following actions.</p>
+<ul>
+<li>
+<p>System-wide native messaging hosts, which are available to all users, are stored in a fixed location.  For example, the manifest file must be stored in following location.</p>
+<pre class=" language-bash"><code class="prism  language-bash">/Library/Microsoft/Edge/NativeMessagingHosts/com.my_company.my_app.json
+</code></pre>
+</li>
+<li>
+<p>User-specific native messaging hosts, which are available to the current user only, are located in the <code>NativeMessagingHosts</code> subdirectory in the user profile directory.  For example, the manifest file must be stored in following location.</p>
+<pre class=" language-bash"><code class="prism  language-bash">~/Library/Application Support/Microsoft Edge <span class="token punctuation">{</span>Channel_Name<span class="token punctuation">}</span>/NativeMessagingHosts/com.my_company.my_app.json
+</code></pre>
+<p>The  <code>{Channel_Name}</code> in <code>Microsoft Edge {Channel_Name}</code> must be one of the following values.</p>
+<ul>
+<li><code>Canary</code></li>
+<li><code>Dev</code></li>
+<li><code>Beta</code></li>
+</ul>
+<p>When using the Stable channel, <code>{Channel_Name}</code> isn’t required.</p>
+</li>
+</ul>
+<h3 id="linux"><a href="#tab/linux/">Linux</a></h3>
+<p><a id="copy-manifest-file"></a></p>
+<p>To store the manifest file, complete one of the following actions.</p>
+<ul>
+<li>
+<p>System-wide native messaging hosts, which are available to all users, are stored in a fixed location.  The manifest file must be stored in following location.</p>
+<pre class=" language-bash"><code class="prism  language-bash">/etc/opt/edge/native-messaging-hosts
+</code></pre>
+</li>
+<li>
+<p>User-specific native messaging hosts, which are available to the current user only, are located in the <code>NativeMessagingHosts</code> subdirectory in the user profile directory.  The manifest file must be stored in following location.</p>
+<pre class=" language-bash"><code class="prism  language-bash">~/.config/microsoft-edge/NativeMessagingHosts
+</code></pre>
+</li>
+</ul>
+<hr>
+<!-- links -->  
+<blockquote>
+<p>[!NOTE]<br>
+Portions of this page are modifications based on work created and <a href="https://developers.google.com/terms/site-policies">shared by Google</a> and used according to terms described in the <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.<br>
+The original page is found <a href="https://developer.chrome.com/extensions/nativeMessaging">here</a>.</p>
+</blockquote>
+<p><a href="https://creativecommons.org/licenses/by/4.0"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons License"></a><br>
+This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
+</body>
+
+</html>

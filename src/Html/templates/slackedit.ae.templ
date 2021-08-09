@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{files.0.name}}</title>
+  <link rel="stylesheet" href="http://static/highlight.js/styles/ae/ae-highLight-pwsh.css">
+  <link rel="stylesheet" href="http://static/markdown.css">
+  <script src="http://static/highlight.js/highlight.pack.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+  </style>
+</head>
+<body>
+  {{/if}}
+  <header>
+    <nav class="nav-right">
+      <a href="#warning"><b>In this article</b></a>
+      {{#tocToHtml files.0.content.toc 2}}{{/tocToHtml}}
+    </nav>
+    <nav class="nav-left">
+      <a href="#warning"><b>Table of content</b></a>
+    </nav>
+    <div class="header">
+      <h1>{{files.0.name}}</h1>
+    </div>
+  </header>
+  <main>
+    {{{files.0.content.html}}}
+  </main>
+  <footer>
+    <div class="footer">Copyright 2022 <span style="font-size: 12px;">Ⓒ</span>AxelEric<div>
+  </footer>
+</body>
+</html>
